@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sign In / Sign Up Form</title>
+    <style>
+       body {
+            font-family: 'Poppins', sans-serif;
+            background: #8e44ad;
+            background: linear-gradient(to right, #8e44ad, #c0392b);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            margin: 0;
+        }
+
+        .container {
+	    background: linear-gradient(to right, #0B2F9F, #C1F316F);
+            opacity: 0.8;
+            display: flex;
+            border-radius: 20px;
+            box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1);
+            backdrop-filter: blur(100px);
+        }
+
+        .sign-in {
+            padding: 40px;
+            width: 350px;
+            background-color: rgba(255, 255, 255, 0.1);
+            border-top-left-radius: 20px;
+            border-bottom-left-radius: 20px;
+        }
+
+        .sign-up {
+            padding: 40px;
+            width: 300px;
+            background: linear-gradient(to bottom right, #0B2F9F, #C1F316F);
+            color: white;
+            border-top-right-radius: 20px;
+            border-bottom-right-radius: 20px;
+        }
+
+        h2 {
+            text-align: center;
+            margin-bottom: 20px;
+            color: #C7FFD8;
+        }
+
+        input[type="email"], input[type="password"] {
+            width: 100%;
+            padding: 12px;
+            border: 1px solid #ccc;
+            border-radius: 3px;
+            margin-bottom: 15px;
+            box-sizing: border-box;
+            background-color: transparent;
+            color: #fff;
+            border-bottom: 1px solid #fff;
+        }
+
+        input[type="checkbox"] {
+            margin-right: 5px;
+        }
+
+        button {
+            background: linear-gradient(to bottom right, #161D6F, #C7FFD8);
+            color: white;
+            padding: 12px 20px;
+            border: none;
+            border-radius: 3px;
+            cursor: pointer;
+            width: 100%;
+            margin-bottom: 10px;
+        }
+
+        .sign-up button {
+            background-color: white;
+            color: black;
+        }
+
+        a {
+            color: #C7FFD8;
+            text-decoration: none;
+	    
+        }
+
+        .sign-up a {
+            color:  #333333;
+        }
+
+        .error {
+            color: red;
+            font-size: 12px;
+            margin-bottom: 10px;
+        }
+
+        .user-box {
+            position: relative;
+            width: 100%;
+            height: 50px;
+            margin-bottom: 20px;
+            text-align:center;
+        }
+
+        .user-box input {
+            width: 100%;
+            height: 100%;
+            padding: 10px 0;
+            font-size: 16px;
+            color: #fff;
+            margin-bottom: 30px;
+            border: none;
+            border-bottom: 1px solid #fff;
+            outline: none;
+            background: transparent;
+        }
+
+        .user-box label {
+            position: absolute;
+            top: 0;
+            left: 0;
+            padding: 10px 0;
+            font-size: 16px;
+            color: #98DED9;
+            pointer-events: none;
+            transition: .5s;
+        }
+
+        .user-box input:focus ~ label,
+        .user-box input:valid ~ label {
+            top: -20px;
+            left: 0;
+            color: black;
+            font-size: 12px;
+        }
+.sign-in h2, .sign-in label, .sign-in a, .sign-up h2, .sign-up p, .sign-up button {
+  opacity: 1;
+}
+body {
+  background-image: url('bg1.jpg'); /* replace with your image URL */
+  background-size: cover; /* scale the image to cover the entire body */
+  background-repeat: no-repeat; /* prevent the image from repeating */
+}
+.sign-up{
+  background-image: url('signupp.jpg'); /* replace with your image URL */
+  background-size: cover; /* scale the image to cover the entire body */
+  background-repeat: no-repeat; /* prevent the image from repeating */
+}
+.sign-up {
+  position: relative;
+  opacity: 1;
+  display: flex;
+  background-color: rgba(255, 255, 255, 0.1);
+  border-radius: 0px 20px 20px 0px;
+  box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1);
+  backdrop-filter: blur(100px);
+}
+
+.sign-up button {
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width:90%;
+}.sign-up .hh {
+  position: absolute;
+  color:#C7FFD8;
+  bottom: 10%;
+  left: 50%;
+  transform: translateX(-50%);
+  width:90%;
+}
+    </style>
+</head>
+<body>
+   <div>
+	<h2>Welcome To Anime Portal!</h2>
+    <div class="container">
+        <div class="sign-in">
+            <h2>Log In</h2>
+            <form>
+                <div class="user-box">
+                    <input type="email" id="email" required>
+                    <label>Email</label>
+                    <span id="email-error"></span>
+                </div>
+                <div class="user-box">
+                    <input type="password" id="password" required>
+                    <label>Password</label>
+                    <span id="password-error"></span>
+                </div>
+                <input type="checkbox" id="rememberMe" name="rememberMe">
+                <label for="rememberMe">Remember me</label><br>
+                <button id="signInButton">Log In</button>
+                <center><a href="forgot-password.html">Forgot Password?</a></enter>
+            </form>
+        </div>
+        <div class="sign-up">
+     <h2 class="hh">Don`t have an Account?</h2>
+            <button id="signUpButton">Sign Up</button>
+        </div>
+    </div>
+</div>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+  const signInForm = document.querySelector('.sign-in form');
+  const signUpButton = document.querySelector('.sign-up button');
+
+  // Add event listeners to forms
+  signInForm.addEventListener('submit', validateSignInForm);
+  signUpButton.addEventListener('click', validateSignUpForm);
+
+  // Function to validate sign-in form
+  function validateSignInForm(event) {
+    event.preventDefault();
+
+    const emailInput = document.getElementById('email');
+    const passwordInput = document.getElementById('password');
+    const rememberMeCheckbox = document.getElementById('rememberMe');
+
+    let isValid = true;
+
+    if (emailInput.value.trim() === '') {
+      showError('email', 'Email is required');
+      isValid = false;
+    } else {
+      clearError('email');
+    }
+
+    if (passwordInput.value.trim() === '') {
+      showError('password', 'Password is required');
+      isValid = false;
+    } else {
+      clearError('password');
+    }
+
+    if (isValid) {
+      alert('Sign-in form submitted successfully!');
+      emailInput.value = '';
+      passwordInput.value = '';
+    }
+  }
+
+  // Function to validate sign-up form
+  function validateSignUpForm() {
+    alert('Sign-up!');
+    window.location.href = 'signup.html';
+  }
+
+  // Function to show error message
+  function showError(inputId, message) {
+    const errorSpan = document.getElementById(`${inputId}-error`);
+    errorSpan.textContent = message;
+  }
+
+  // Function to clear error message
+  function clearError(inputId) {
+    const errorSpan = document.getElementById(`${inputId}-error`);
+    errorSpan.textContent = '';
+  }
+});
+    </script>
+</body>
+</html>
